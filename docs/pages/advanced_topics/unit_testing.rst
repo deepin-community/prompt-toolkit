@@ -17,7 +17,7 @@ with `sys.stdin` and `sys.stdout`. In unit tests however, we want to replace
 these.
 
 - For the input, we want a "pipe input". This is an input device, in which we
-  can programatically send some input. It can be created with
+  can programmatically send some input. It can be created with
   :func:`~prompt_toolkit.input.create_pipe_input`, and that return either a
   :class:`~prompt_toolkit.input.posix_pipe.PosixPipeInput` or a
   :class:`~prompt_toolkit.input.win32_pipe.Win32PipeInput` depending on the
@@ -49,9 +49,7 @@ In the following example we use a
     from prompt_toolkit.output import DummyOutput
 
     def test_prompt_session():
-        inp = create_pipe_input()
-
-        try:
+        with create_pipe_input() as inp:
             inp.send_text("hello\n")
             session = PromptSession(
                 input=inp,
@@ -59,8 +57,6 @@ In the following example we use a
             )
 
             result = session.prompt()
-        finally:
-            inp.close()
 
         assert result == "hello"
 
@@ -116,13 +112,25 @@ single fixture that does it for every test. Something like this:
 
     @pytest.fixture(autouse=True, scope="function")
     def mock_input():
-        pipe_input = create_pipe_input()
-        try:
+        with create_pipe_input() as pipe_input:
             with create_app_session(input=pipe_input, output=DummyOutput()):
                 yield pipe_input
-        finally:
-            pipe_input.close()
 
+For compatibility with pytest's ``capsys`` fixture, we have to create a new
+:class:`~prompt_toolkit.application.current.AppSession` for every test. This
+can be done in an autouse fixture. Pytest replaces ``sys.stdout`` with a new
+object in every test that uses ``capsys`` and the following will ensure that
+the new :class:`~prompt_toolkit.application.current.AppSession` will each time
+refer to the latest output.
+
+.. code:: python
+
+    from prompt_toolkit.application import create_app_session
+
+    @fixture(autouse=True, scope="function")
+    def _pt_app_session()
+        with create_app_session():
+            yield
 
 Type checking
 -------------

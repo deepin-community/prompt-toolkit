@@ -2,6 +2,7 @@
 """
 Example of an password input dialog.
 """
+
 from prompt_toolkit.shortcuts import input_dialog
 
 
@@ -12,7 +13,7 @@ def main():
         password=True,
     ).run()
 
-    print("Result = {}".format(result))
+    print(f"Result = {result}")
 
 
 if __name__ == "__main__":

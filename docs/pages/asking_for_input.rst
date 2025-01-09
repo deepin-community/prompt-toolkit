@@ -160,6 +160,20 @@ All Pygments style classes can be used as well, when they are wrapped through
 Suppose we'd like to use a Pygments style, for instance
 ``pygments.styles.tango.TangoStyle``, that is possible like this:
 
+.. code:: python
+
+    from prompt_toolkit.shortcuts import prompt
+    from prompt_toolkit.styles import style_from_pygments_cls
+    from prompt_toolkit.lexers import PygmentsLexer
+    from pygments.styles.tango import TangoStyle
+    from pygments.lexers.html import HtmlLexer
+    
+    tango_style = style_from_pygments_cls (TangoStyle)
+    
+    text = prompt ('Enter HTML: ', 
+      lexer=PygmentsLexer(HtmlLexer),
+      style=tango_style)
+
 Creating a custom style could be done like this:
 
 .. code:: python
@@ -642,7 +656,7 @@ Adding a right prompt
 ---------------------
 
 The :func:`~prompt_toolkit.shortcuts.prompt` function has out of the box
-support for right prompts as well. People familiar to ZSH could recognise this
+support for right prompts as well. People familiar to ZSH could recognize this
 as the `RPROMPT` option.
 
 So, similar to adding a bottom toolbar, we can pass an ``rprompt`` argument.
@@ -692,7 +706,7 @@ Adding custom key bindings
 --------------------------
 
 By default, every prompt already has a set of key bindings which implements the
-usual Vi or Emacs behaviour. We can extend this by passing another
+usual Vi or Emacs behavior. We can extend this by passing another
 :class:`~prompt_toolkit.key_binding.KeyBindings` instance to the
 ``key_bindings`` argument of the :func:`~prompt_toolkit.shortcuts.prompt`
 function or the :class:`~prompt_toolkit.shortcuts.PromptSession` class.
@@ -921,6 +935,30 @@ asterisks (``*`` characters).
     from prompt_toolkit import prompt
 
     prompt('Enter password: ', is_password=True)
+
+
+Cursor shapes
+-------------
+
+Many terminals support displaying different types of cursor shapes. The most
+common are block, beam or underscore. Either blinking or not. It is possible to
+decide which cursor to display while asking for input, or in case of Vi input
+mode, have a modal prompt for which its cursor shape changes according to the
+input mode.
+
+.. code:: python
+
+    from prompt_toolkit import prompt
+    from prompt_toolkit.cursor_shapes import CursorShape, ModalCursorShapeConfig
+
+    # Several possible values for the `cursor_shape_config` parameter:
+    prompt('>', cursor=CursorShape.BLOCK)
+    prompt('>', cursor=CursorShape.UNDERLINE)
+    prompt('>', cursor=CursorShape.BEAM)
+    prompt('>', cursor=CursorShape.BLINKING_BLOCK)
+    prompt('>', cursor=CursorShape.BLINKING_UNDERLINE)
+    prompt('>', cursor=CursorShape.BLINKING_BEAM)
+    prompt('>', cursor=ModalCursorShapeConfig())
 
 
 Prompt in an `asyncio` application
