@@ -3,6 +3,7 @@
 A very simple progress bar which keep track of the progress as we consume an
 iterator.
 """
+
 import time
 
 from prompt_toolkit.shortcuts import ProgressBar
@@ -13,8 +14,7 @@ def data():
     A generator that produces items. len() doesn't work here, so the progress
     bar can't estimate the time it will take.
     """
-    for i in range(1000):
-        yield i
+    yield from range(1000)
 
 
 def main():

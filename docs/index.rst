@@ -1,13 +1,6 @@
 Python Prompt Toolkit 3.0
 =========================
 
-.. warning::
-
-    Notice that this is the prompt_toolkit 3.0 documentation. It is mostly
-    compatible with the 2.0 branch. The difference is that prompt_toolkit 3.0
-    requires at least Python 3.6. On the plus side, it uses asyncio natively
-    (rather than it's own event loop), and we have type annotations everywhere.
-
 `prompt_toolkit` is a library for building powerful interactive command line
 and terminal applications in Python.
 
@@ -49,7 +42,9 @@ Have a look at :ref:`the gallery <gallery>` to get an idea of what is possible.
 Getting started
 ---------------
 
-Go to :ref:`getting started <getting_started>` and build your first prompt.
+Go to :ref:`getting started <getting_started>` and build your first prompt. 
+Issues are tracked `on the Github project
+<https://github.com/prompt-toolkit/python-prompt-toolkit>`_.
 
 
 Thanks to:
@@ -80,6 +75,7 @@ Table of contents
    pages/tutorials/index
    pages/advanced_topics/index
    pages/reference
+   pages/related_projects
 
 
 Indices and tables

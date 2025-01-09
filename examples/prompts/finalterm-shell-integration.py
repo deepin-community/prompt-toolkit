@@ -3,6 +3,7 @@
 Mark the start and end of the prompt with Final term (iterm2) escape sequences.
 See: https://iterm2.com/finalterm.html
 """
+
 import sys
 
 from prompt_toolkit import prompt
@@ -35,9 +36,9 @@ if __name__ == "__main__":
     # Option 2: Using ANSI escape sequences.
     before = "\001" + BEFORE_PROMPT + "\002"
     after = "\001" + AFTER_PROMPT + "\002"
-    answer = prompt(ANSI("{}Say something: # {}".format(before, after)))
+    answer = prompt(ANSI(f"{before}Say something: # {after}"))
 
     # Output.
     sys.stdout.write(BEFORE_OUTPUT)
-    print("You said: %s" % answer)
+    print(f"You said: {answer}")
     sys.stdout.write(AFTER_OUTPUT.format(command_status=0))

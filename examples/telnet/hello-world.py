@@ -6,11 +6,12 @@ The interaction function is a prompt_toolkit coroutine.
 Also see the `hello-world-asyncio.py` example which uses an asyncio coroutine.
 That is probably the preferred way if you only need Python 3 support.
 """
+
 import logging
+from asyncio import run
 
 from prompt_toolkit.contrib.telnet.server import TelnetServer
-from prompt_toolkit.eventloop import get_event_loop
-from prompt_toolkit.shortcuts import clear, prompt
+from prompt_toolkit.shortcuts import PromptSession, clear
 
 # Set up logging
 logging.basicConfig()
@@ -22,18 +23,18 @@ async def interact(connection):
     connection.send("Welcome!\n")
 
     # Ask for input.
-    result = await prompt(message="Say something: ", async_=True)
+    session = PromptSession()
+    result = await session.prompt_async(message="Say something: ")
 
     # Send output.
-    connection.send("You said: {}\n".format(result))
+    connection.send(f"You said: {result}\n")
     connection.send("Bye.\n")
 
 
-def main():
+async def main():
     server = TelnetServer(interact=interact, port=2323)
-    server.start()
-    get_event_loop().run_forever()
+    await server.run()
 
 
 if __name__ == "__main__":
-    main()
+    run(main())

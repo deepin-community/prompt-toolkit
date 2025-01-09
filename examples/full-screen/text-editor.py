@@ -2,6 +2,7 @@
 """
 A simple example of a Notepad-like text editor.
 """
+
 import datetime
 from asyncio import Future, ensure_future
 
@@ -53,10 +54,7 @@ def get_statusbar_text():
 
 
 def get_statusbar_right_text():
-    return " {}:{}  ".format(
-        text_field.document.cursor_position_row + 1,
-        text_field.document.cursor_position_col + 1,
-    )
+    return f" {text_field.document.cursor_position_row + 1}:{text_field.document.cursor_position_col + 1}  "
 
 
 search_toolbar = SearchToolbar()
@@ -185,8 +183,8 @@ def do_open_file():
             try:
                 with open(path, "rb") as f:
                     text_field.text = f.read().decode("utf-8", errors="ignore")
-            except IOError as e:
-                show_message("Error", "{}".format(e))
+            except OSError as e:
+                show_message("Error", f"{e}")
 
     ensure_future(coroutine())
 

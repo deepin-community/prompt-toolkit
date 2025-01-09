@@ -1,3 +1,177 @@
+prompt-toolkit (3.0.48-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.48.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 30 Sep 2024 06:52:16 +0200
+
+prompt-toolkit (3.0.47-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.47.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 17 Jun 2024 10:13:14 +0200
+
+prompt-toolkit (3.0.46-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.46.
+  * Updating year in copyright for 2024.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 05 Jun 2024 06:43:11 +0200
+
+prompt-toolkit (3.0.43-2) sid; urgency=medium
+
+  * Uploading to sid.
+  * Running 'wrap-and-sort -bast' for git friendlier formating of debian
+    packaging files.
+  * Updating to standards-version 4.7.0.
+  * Removing pre-oldstable breaks.
+  * Updating formating of copyright file.
+  * Updating years for upstream in copyright.
+  * Adding myself in copyright.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Tue, 30 Apr 2024 19:39:33 +0200
+
+prompt-toolkit (3.0.43-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.43.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Sun, 17 Dec 2023 11:41:47 +0100
+
+prompt-toolkit (3.0.41-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.41.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Thu, 07 Dec 2023 08:56:20 +0100
+
+prompt-toolkit (3.0.39-2) sid; urgency=medium
+
+  * Uploading to sid.
+  * Manually removing some files that pybuild doesn't clean up during
+    build (Closes: #1048365).
+  * Harmonizing wrt/ whitespaces and variable quoting.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 14 Aug 2023 12:05:53 +0200
+
+prompt-toolkit (3.0.39-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.39.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 05 Jul 2023 07:34:23 +0200
+
+prompt-toolkit (3.0.38-2) sid; urgency=medium
+
+  * Uploading to sid.
+  * Uploading without changes after bookworm release.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Sun, 11 Jun 2023 14:40:55 +0200
+
+prompt-toolkit (3.0.38-1) experimental; urgency=medium
+
+  * Uploading to experimental.
+  * Merging upstream version 3.0.38.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Fri, 03 Mar 2023 07:46:10 +0100
+
+prompt-toolkit (3.0.37-1) experimental; urgency=medium
+
+  * Uploading to experimental.
+  * Merging upstream version 3.0.37.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 27 Feb 2023 11:36:42 +0100
+
+prompt-toolkit (3.0.36-2) sid; urgency=medium
+
+  * Uploading to sid.
+  * Updating to standards version 4.6.2.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 30 Jan 2023 17:56:19 +0100
+
+prompt-toolkit (3.0.36-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.36.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 12 Dec 2022 16:30:26 +0100
+
+prompt-toolkit (3.0.33-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.33.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 23 Nov 2022 09:04:21 +0100
+
+prompt-toolkit (3.0.32-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.32.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Sun, 06 Nov 2022 18:58:11 +0100
+
+prompt-toolkit (3.0.31-1) sid; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+  [ Daniel Baumann ]
+  * Uploading to sid.
+  * Merging upstream version 3.0.31.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 07 Sep 2022 11:35:43 +0200
+
+prompt-toolkit (3.0.30-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Updating to standards version 4.6.1.
+  * Merging upstream version 3.0.30.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Mon, 04 Jul 2022 09:53:35 +0200
+
+prompt-toolkit (3.0.29-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.29.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sun, 10 Apr 2022 16:40:26 +0200
+
+prompt-toolkit (3.0.28-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.28.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sat, 19 Feb 2022 09:04:22 +0100
+
+prompt-toolkit (3.0.27-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.27.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Wed, 09 Feb 2022 14:48:29 +0100
+
+prompt-toolkit (3.0.26-1) unstable; urgency=medium
+
+  * New upstream version 3.0.26
+
+ -- Gordon Ball <gordon@chronitis.net>  Fri, 28 Jan 2022 10:58:19 +0000
+
+prompt-toolkit (3.0.24-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.24.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sun, 12 Dec 2021 07:30:18 +0100
+
+prompt-toolkit (3.0.23-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.23.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sat, 04 Dec 2021 05:04:43 +0100
+
 prompt-toolkit (3.0.22-1) unstable; urgency=medium
 
   * New upstream version 3.0.22

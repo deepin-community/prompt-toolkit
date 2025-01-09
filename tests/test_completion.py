@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import re
 import shutil
@@ -6,7 +8,6 @@ from contextlib import contextmanager
 
 from prompt_toolkit.completion import (
     CompleteEvent,
-    DeduplicateCompleter,
     FuzzyWordCompleter,
     NestedCompleter,
     PathCompleter,
@@ -33,7 +34,7 @@ def write_test_files(test_dir, names=None):
     names = names or range(10)
     for i in names:
         with open(os.path.join(test_dir, str(i)), "wb") as out:
-            out.write("".encode("UTF-8"))
+            out.write(b"")
 
 
 def test_pathcompleter_completes_in_current_directory():
@@ -50,7 +51,7 @@ def test_pathcompleter_completes_files_in_current_directory():
     test_dir = tempfile.mkdtemp()
     write_test_files(test_dir)
 
-    expected = sorted([str(i) for i in range(10)])
+    expected = sorted(str(i) for i in range(10))
 
     if not test_dir.endswith(os.path.sep):
         test_dir += os.path.sep
@@ -74,7 +75,7 @@ def test_pathcompleter_completes_files_in_absolute_directory():
     test_dir = tempfile.mkdtemp()
     write_test_files(test_dir)
 
-    expected = sorted([str(i) for i in range(10)])
+    expected = sorted(str(i) for i in range(10))
 
     test_dir = os.path.abspath(test_dir)
     if not test_dir.endswith(os.path.sep):
@@ -86,7 +87,7 @@ def test_pathcompleter_completes_files_in_absolute_directory():
     doc = Document(doc_text, len(doc_text))
     event = CompleteEvent()
     completions = list(completer.get_completions(doc, event))
-    result = sorted([c.text for c in completions])
+    result = sorted(c.text for c in completions)
     assert expected == result
 
     # cleanup

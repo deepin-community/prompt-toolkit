@@ -5,6 +5,7 @@ Simple example of a custom, very slow history, that is loaded asynchronously.
 By wrapping it in `ThreadedHistory`, the history will load in the background
 without blocking any user interaction.
 """
+
 import time
 
 from prompt_toolkit import PromptSession
@@ -19,7 +20,7 @@ class SlowHistory(History):
     def load_history_strings(self):
         for i in range(1000):
             time.sleep(1)  # Emulate slowness.
-            yield "item-%s" % (i,)
+            yield f"item-{i}"
 
     def store_string(self, string):
         pass  # Don't store strings.
@@ -41,7 +42,7 @@ def main():
 
     while True:
         text = session.prompt("Say something: ")
-        print("You said: %s" % text)
+        print(f"You said: {text}")
 
 
 if __name__ == "__main__":

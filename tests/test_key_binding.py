@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from contextlib import contextmanager
+
 import pytest
 
 from prompt_toolkit.application import Application
@@ -10,7 +14,7 @@ from prompt_toolkit.layout import Layout, Window
 from prompt_toolkit.output import DummyOutput
 
 
-class Handlers(object):
+class Handlers:
     def __init__(self):
         self.called = []
 
@@ -21,16 +25,31 @@ class Handlers(object):
         return func
 
 
+@contextmanager
 def set_dummy_app():
     """
     Return a context manager that makes sure that this dummy application is
     active. This is important, because we need an `Application` with
     `is_done=False` flag, otherwise no keys will be processed.
     """
-    app = Application(
-        layout=Layout(Window()), output=DummyOutput(), input=create_pipe_input()
-    )
-    return set_app(app)
+    with create_pipe_input() as pipe_input:
+        app = Application(
+            layout=Layout(Window()),
+            output=DummyOutput(),
+            input=pipe_input,
+        )
+
+        # Don't start background tasks for these tests. The `KeyProcessor`
+        # wants to create a background task for flushing keys. We can ignore it
+        # here for these tests.
+        # This patch is not clean. In the future, when we can use Taskgroups,
+        # the `Application` should pass its task group to the constructor of
+        # `KeyProcessor`. That way, it doesn't have to do a lookup using
+        # `get_app()`.
+        app.create_background_task = lambda *_, **kw: None
+
+        with set_app(app):
+            yield
 
 
 @pytest.fixture
